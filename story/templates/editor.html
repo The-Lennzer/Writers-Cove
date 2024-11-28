@@ -1,0 +1,58 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %} Create Story {% endblock %}
+{% block extraCSS %} <link rel="stylesheet" href="{% static 'CSS/editor.css' %}"> {% endblock %}
+{% block extraJS %} <script src="{% static 'js/submitStory.js' %}" defer></script> {% endblock %}
+{% block content %}
+<div class="editor-container">
+    <h1>Create a New Story</h1>
+    <form id="storyForm" method="POST" action="/story/editor/" class="form-container">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Story Title" required class="story-title" />
+        
+        <!-- Editor wrapper for loading spinner -->
+        <div class="editor-wrapper">
+            <div class="loading-spinner"></div>  <!-- Loading spinner -->
+            <textarea id="storyEditor" name="content"></textarea> <!-- TinyMCE editor -->
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
+
+<!-- Include TinyMCE -->
+<script src="https://cdn.tiny.cloud/1/mw9yvge813s6st2k70lwe89iojh5j1tixczqq97oy3gt6ioh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    // Wait until the DOM content is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        const spinner = document.querySelector('.loading-spinner'); // Loading spinner element
+        const textarea = document.getElementById('storyEditor'); // TinyMCE textarea
+
+        // Initialize TinyMCE
+        tinymce.init({
+            selector: '#storyEditor',
+            plugins: 'lists code fontfamily fontsize formats toolbar',
+            toolbar: 'undo redo | formatselect | fontfamily fontsize | bold italic underline | alignleft aligncenter alignright | bullist numlist',
+            menubar: false,
+            height: 500,
+            branding: false,
+            font_formats: "Times New Roman=times new roman,times;Comic Sans MS=comic sans ms,sans-serif;",
+            fontsize_formats: "12pt 14pt 18pt 24pt 36pt",
+            content_style: "body { font-family: 'Times New Roman', Comic Sans MS; font-size: 14px; }",
+            forced_root_block: 'p',
+            formatselect: true, // Enables Title, Heading, Subheading, etc.
+            block_formats: "Paragraph=p; Title=h1; Heading=h2; Subheading=h3",
+            toolbar_mode: 'wrap', // Makes the toolbar responsive for smaller screens
+            apiKey: 'mw9yvge813s6st2k70lwe89iojh5j1tixczqq97oy3gt6ioh', // Your TinyMCE API key
+            placeholder: 'Start writing here...',
+            setup: function(editor) {
+                editor.on('init', function() {
+                    // Hide the spinner and show the editor when TinyMCE is ready
+                    spinner.style.display = 'none';
+                    {% comment %} textarea.style.display = 'block'; {% endcomment %}
+                });
+            }
+        });
+    });
+</script>
+{% endblock %}

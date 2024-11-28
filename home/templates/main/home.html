@@ -1,0 +1,205 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %} Home-WC {% endblock %}
+{% block extraCSS %} <link rel="stylesheet" href="{% static 'CSS/home.css' %}"> {% endblock %}
+{% block profile %} <li><a href="#"> {{ user.user_name }} </a></li> {% endblock %}
+{% block content %}
+    {% comment %} <h1>Welcome to the Home page</h1> {% endcomment %}
+    
+    <!-- Feed Container -->
+    <div class="feed-container">
+
+        <div class="prompt-container">
+        <div class="card-header" onclick="toggleCard()" >
+        Daily Prompt
+        </div>
+        <div class="card-content">
+        <p>A young orphan discovers a hidden magical artifact in the woods, 
+           only to find out it is tied to an ancient prophecy. As dark forces 
+           begin to hunt for the artifact, she must decide whether to use its power 
+           to save her world or destroy it before it falls into the wrong hands.</p>
+        </div>
+        </div>
+
+        <!-- Post Card 1 -->
+        <div class="post-card">
+            <div class="post-header">
+                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
+                <span class="username">JohnDoe</span>
+            </div>
+            <div class="post-content">
+                <p>This is an example of a story post. It's just a simple placeholder text.</p>
+            </div>
+            <div class="post-footer">
+                <span class="likes">10 likes</span>
+                <span class="comments">5 comments</span>
+            </div>
+        </div>
+
+        <!-- Post Card 2 -->
+        <div class="post-card">
+            <div class="post-header">
+                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
+                <span class="username">JaneSmith</span>
+            </div>
+            <div class="post-content">
+                <p>Another example of a story post. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="post-footer">
+                <span class="likes">20 likes</span>
+                <span class="comments">10 comments</span>
+            </div>
+        </div>
+
+        <!-- Post Card 2 -->
+        <div class="post-card">
+            <div class="post-header">
+                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
+                <span class="username">JaneSmith</span>
+            </div>
+            <div class="post-content">
+                <p>Another example of a story post. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="post-footer">
+                <span class="likes">20 likes</span>
+                <span class="comments">10 comments</span>
+            </div>
+        </div>
+
+        <!-- Post Card 2 -->
+        <div class="post-card">
+            <div class="post-header">
+                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
+                <span class="username">JaneSmith</span>
+            </div>
+            <div class="post-content">
+                <p>Another example of a story post. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="post-footer">
+                <span class="likes">20 likes</span>
+                <span class="comments">10 comments</span>
+            </div>
+        </div>
+
+        <!-- Post Card 2 -->
+        <div class="post-card">
+            <div class="post-header">
+                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
+                <span class="username">JaneSmith</span>
+            </div>
+            <div class="post-content">
+                <p>Another example of a story post. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="post-footer">
+                <span class="likes">20 likes</span>
+                <span class="comments">10 comments</span>
+            </div>
+        </div>
+
+        <!-- Post Card 2 -->
+        <div class="post-card">
+            <div class="post-header">
+                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
+                <span class="username">JaneSmith</span>
+            </div>
+            <div class="post-content">
+                <p>Another example of a story post. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="post-footer">
+                <span class="likes">20 likes</span>
+                <span class="comments">10 comments</span>
+            </div>
+        </div>
+
+        <!-- Post Card 2 -->
+        <div class="post-card">
+            <div class="post-header">
+                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
+                <span class="username">JaneSmith</span>
+            </div>
+            <div class="post-content">
+                <p>Another example of a story post. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="post-footer">
+                <span class="likes">20 likes</span>
+                <span class="comments">10 comments</span>
+            </div>
+        </div>
+
+        <!-- Post Card 2 -->
+        <div class="post-card">
+            <div class="post-header">
+                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
+                <span class="username">JaneSmith</span>
+            </div>
+            <div class="post-content">
+                <p>Another example of a story post. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="post-footer">
+                <span class="likes">20 likes</span>
+                <span class="comments">10 comments</span>
+            </div>
+        </div>
+
+        <!-- Post Card 2 -->
+        <div class="post-card">
+            <div class="post-header">
+                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
+                <span class="username">JaneSmith</span>
+            </div>
+            <div class="post-content">
+                <p>Another example of a story post. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="post-footer">
+                <span class="likes">20 likes</span>
+                <span class="comments">10 comments</span>
+            </div>
+        </div>
+
+        <!-- Post Card 2 -->
+        <div class="post-card">
+            <div class="post-header">
+                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
+                <span class="username">JaneSmith</span>
+            </div>
+            <div class="post-content">
+                <p>Another example of a story post. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="post-footer">
+                <span class="likes">20 likes</span>
+                <span class="comments">10 comments</span>
+            </div>
+        </div>
+
+        <!-- Post Card 2 -->
+        <div class="post-card">
+            <div class="post-header">
+                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
+                <span class="username">JaneSmith</span>
+            </div>
+            <div class="post-content">
+                <p>Another example of a story post. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="post-footer">
+                <span class="likes">20 likes</span>
+                <span class="comments">10 comments</span>
+            </div>
+        </div>
+
+        <!-- Post Card 3 -->
+        <div class="post-card">
+            <div class="post-header">
+                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
+                <span class="username">SaraLee</span>
+            </div>
+            <div class="post-content">
+                <p>This post includes a different kind of story. It's still just a placeholder!</p>
+            </div>
+            <div class="post-footer">
+                <span class="likes">15 likes</span>
+                <span class="comments">7 comments</span>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
+    {% block extraCSS %}{% endblock %}
+    <script src="{% static 'js/base.js' %}" defer></script>
+    <script src="{% static 'js/prompt.js' %}" defer></script>
+    <script src="{% static 'js/logout.js' %}" defer></script>
+    {% block extraJS %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                {% comment %} <button id="toggle-sidebar" class="sidebar-toggle">
+                    &#9776; <!-- Hamburger icon -->
+                </button> {% endcomment %}
+                <p>Writers Cove</p>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'editor' %}">Write</a></li>
+                <li><a href="#">Prompts</a></li>
+                <li><a href="#">Contest</a></li>
+                <div class="sidebar-spacer"></div> <!-- Push items to the bottom -->
+                {% block profile %}
+                <li><a href="#"> Profile </a></li>
+                {% endblock %}
+                <li id="logoutButton">Logout</li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            {% block content %}
+            <h1>Welcome to the Dashboard</h1>
+            {% endblock %}
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+/* Basic card styles */
+.prompt-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+    border-radius: 8px;
+    background-color: #f4f4f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    /* Make the prompt container sticky */
+    position: sticky;
+    top: 10px; /* Distance from the top of the viewport */
+    z-index: 10; /* Ensure it stays above other content */
+}
+
+/* Card header styles */
+.prompt-container .card-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.prompt-container .card-content {
+    padding: 15px;
+    display: none; /* Initially hidden */
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.prompt-container.expanded .card-content {
+    display: block;
+}
+
+.prompt-container.expanded {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* Add hover effect to title */
+.prompt-container .card-header:hover {
+    background-color: #45a049;
+}
+
+
+
+
+/* Feed Container */
+.feed-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between posts */
+    margin-top: 20px;
+    padding: 0 15px;
+    max-width: 800px;
+    margin: 0 auto; /* Center feed */
+}
+
+/* Post Card Style */
+.post-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.username {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.post-content p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Post Footer */
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.likes, .comments {
+    cursor: pointer;
+}
+
+.likes:hover, .comments:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Feed */
+@media (max-width: 768px) {
+    .feed-container {
+        padding: 0 10px;
+    }
+
+    .post-card {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Feed</title>
+    <link rel="stylesheet" href="{% static "CSS/feed.css" %}">
+    <script src="{% static 'js/feed.js' %}"></script>
+</head>
+<body>
+    <div class="navbar">
+        <span class="logo">StoryApp</span>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Write</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="feed-container">
+        <div id="feed">
+            <!-- Placeholder posts -->
+            <div class="post">
+                <div class="post-header">
+                    <span class="author">Posted by: John Doe</span>
+                    <span class="timestamp">2 hours ago</span>
+                </div>
+                <h2 class="post-title">The Lost Adventure</h2>
+                <p class="post-content">
+                    It all began on a sunny morning when the world seemed normal...
+                </p>
+            </div>
+            <div class="post">
+                <div class="post-header">
+                    <span class="author">Posted by: Jane Smith</span>
+                    <span class="timestamp">4 hours ago</span>
+                </div>
+                <h2 class="post-title">Echoes of the Forest</h2>
+                <p class="post-content">
+                    The forest held secrets that no one dared to uncover...
+                </p>
+            </div>
+            <!-- More posts will be dynamically loaded -->
+        </div>
+        <div class="loading" id="loading">Loading more stories...</div>
+    </div>
+
+    {% comment %} <script src="script.js"></script> {% endcomment %}
+</body>
+</html>
