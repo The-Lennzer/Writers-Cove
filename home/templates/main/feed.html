@@ -1,52 +1,52 @@
+{% extends 'main/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Feed</title>
-    <link rel="stylesheet" href="{% static "CSS/feed.css" %}">
-    <script src="{% static 'js/feed.js' %}"></script>
-</head>
-<body>
-    <div class="navbar">
-        <span class="logo">StoryApp</span>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Write</a></li>
-            <li><a href="#">Logout</a></li>
-        </ul>
-    </div>
+{% block title %} Home-WC {% endblock %}
+{% block extraCSS %} <link rel="stylesheet" href="{% static 'CSS/home.css' %}"> {% endblock %}
+{% block profile %} <li><a href="#"> {{ user.user_name }} </a></li> {% endblock %}
+{% block content %}
+    {% comment %} <h1>Welcome to the Home page</h1> {% endcomment %}
+    
+    <!-- Feed Container -->
+    <div class="feed-container">
+
+        <div class="prompt-container">
+        <div class="card-header" onclick="toggleCard()" >
+        Daily Prompt
+        </div>
+        <div class="card-content">
+        <p>A young orphan discovers a hidden magical artifact in the woods, 
+           only to find out it is tied to an ancient prophecy. As dark forces 
+           begin to hunt for the artifact, she must decide whether to use its power 
+           to save her world or destroy it before it falls into the wrong hands.</p>
+        </div>
+        </div>
 
     <div class="feed-container">
-        <div id="feed">
-            <!-- Placeholder posts -->
-            <div class="post">
-                <div class="post-header">
-                    <span class="author">Posted by: John Doe</span>
-                    <span class="timestamp">2 hours ago</span>
-                </div>
-                <h2 class="post-title">The Lost Adventure</h2>
-                <p class="post-content">
-                    It all began on a sunny morning when the world seemed normal...
-                </p>
+        {% for story in stories %}
+        <div class="post-card">
+            <!-- Post Header -->
+            <div class="post-header">
+                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
+                <span class="username">{{ story.author.user_name }}</span> <!-- Display author's username -->
             </div>
-            <div class="post">
-                <div class="post-header">
-                    <span class="author">Posted by: Jane Smith</span>
-                    <span class="timestamp">4 hours ago</span>
+
+            <!-- Post Content -->
+            <div class="post-content">
+                <h3 class="post-title">{{ story.storyTitle }}</h3> <!-- Story title -->
+                <div class="story-text">
+                    {{ story.content|safe }} <!-- Render TinyMCE content safely -->
                 </div>
-                <h2 class="post-title">Echoes of the Forest</h2>
-                <p class="post-content">
-                    The forest held secrets that no one dared to uncover...
-                </p>
             </div>
-            <!-- More posts will be dynamically loaded -->
+
+            <!-- Post Footer -->
+            <div class="post-footer">
+                <span class="likes">20 likes</span> <!-- Static or placeholder data -->
+                <span class="comments">10 comments</span> <!-- Static or placeholder data -->
+            </div>
         </div>
-        <div class="loading" id="loading">Loading more stories...</div>
+        {% empty %}
+        <p>No stories to show yet. Start by writing your first story!</p>
+        {% endfor %}
     </div>
 
-    {% comment %} <script src="script.js"></script> {% endcomment %}
-</body>
-</html>
+{% endblock %}
