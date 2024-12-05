@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %} Create Story {% endblock %}
+{% block extraCSS %}
+<link rel="stylesheet" href="{% static 'CSS/editor.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/prompts.css' %}">
+{% endblock %}
+
+{% comment %} {% block extraJS %} <script src="{% static 'js/submitStory.js' %}" defer></script> {% endblock %} {% endcomment %}
+{% block profile %} <li><a href="#"> {{ user.user_name }} </a></li> {% endblock %}
+{% block content %}
+
+<div class="prompt-container">
+    <h1>Genrate a New Prompt!</h1>
+    <form id="storyForm" method="POST" action="/story/prompt/">
+    {% csrf_token %}
+    <input class="prompt-prompt" type="text" name="context" placeholder="Ask for a specific prompt..."/>
+    <input type="hidden" name="action-type" value="specific" id="action-type"/>
+    <button type="submit" class="submit-btn" onclick="setActionType('specific', event)">Generate</button>
+    <button type="submit" class="submit-btn" onclick="setActionType('random', event)">Generate Random</button>
+    </form>
+
+    <div id="generated-prompt" class="prompt-display">
+        {% if prompt %}
+        <h3 id="title"><strong>Story Prompt</strong></h3>
+        <p id="prompt-content">{{ prompt }}<p>
+        {% else %}
+        <p>No prompt generated yet.</p>
+        {% endif %}
+    </div>
+
+
+</div>
+
+<script>
+   function setActionType(type, event) {
+        event.preventDefault(); // Prevent immediate submission
+        const actionTypeField = document.getElementById('action-type');
+        if (actionTypeField) {
+            actionTypeField.value = type;
+            console.log(type);
+
+            // Submit the form manually
+            document.getElementById('storyForm').submit();
+        } else {
+            console.error("Hidden input field 'action-type' not found.");
+        }
+    }
+</script>
+{% endblock %}
+
+

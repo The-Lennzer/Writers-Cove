@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %} Home-WC {% endblock %}
 {% block extraCSS %} <link rel="stylesheet" href="{% static 'CSS/home.css' %}"> {% endblock %}
+{% block extraJS %} <script src="{% static 'js/feed.js' %}" defer></script> {% endblock %}
 {% block profile %} <li><a href="#"> {{ user.user_name }} </a></li> {% endblock %}
 {% block content %}
     {% comment %} <h1>Welcome to the Home page</h1> {% endcomment %}
@@ -14,39 +15,30 @@
         Daily Prompt
         </div>
         <div class="card-content">
-        <p>A young orphan discovers a hidden magical artifact in the woods, 
-           only to find out it is tied to an ancient prophecy. As dark forces 
-           begin to hunt for the artifact, she must decide whether to use its power 
-           to save her world or destroy it before it falls into the wrong hands.</p>
+        <p>{{ daily_prompt }}</p>
         </div>
         </div>
 
-    <div class="feed-container">
-        {% for story in stories %}
-        <div class="post-card">
-            <!-- Post Header -->
-            <div class="post-header">
-                <img src="{% static 'images/user-avatar.jpg' %}" alt="User Avatar" class="user-avatar">
-                <span class="username">{{ story.author.user_name }}</span> <!-- Display author's username -->
-            </div>
-
-            <!-- Post Content -->
-            <div class="post-content">
-                <h3 class="post-title">{{ story.storyTitle }}</h3> <!-- Story title -->
-                <div class="story-text">
-                    {{ story.content|safe }} <!-- Render TinyMCE content safely -->
-                </div>
-            </div>
-
-            <!-- Post Footer -->
-            <div class="post-footer">
-                <span class="likes">20 likes</span> <!-- Static or placeholder data -->
-                <span class="comments">10 comments</span> <!-- Static or placeholder data -->
-            </div>
+    {% for story in stories %}
+    <div class="post-card" onclick="toggleContent(this)">
+        <!-- Post Header -->
+        <div class="post-header">
+            <span class="username">{{ story.author }}</span> <!-- Display author's username -->
         </div>
-        {% empty %}
-        <p>No stories to show yet. Start by writing your first story!</p>
-        {% endfor %}
+
+        <!-- Story Title -->
+        <div class="post-title">
+           <strong>{{ story.storyTitle }}</strong>
+        </div>
+
+        <!-- Hidden Full Content -->
+        <div class="full-content" style="display: none;">
+            <h2><strong>{{ story.title }}</strong></h2>
+            <div>{% autoescape off %}{{ story.content | safe }}{% endautoescape %}</div>
+        </div>
     </div>
-
+    {% empty %}
+    <p>No stories to show yet. Start by writing your first story!</p>
+    {% endfor %}
+</div>
 {% endblock %}

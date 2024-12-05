@@ -105,7 +105,7 @@ class LoginView(APIView):
             response = Response({"detail": "Redirecting to home..."}, status=302)
 
             # Set the redirection location
-            response['Location'] = '/home/'  
+            response['Location'] = '/home/feed/'  
 
             response.set_cookie(
                 key="access_token",

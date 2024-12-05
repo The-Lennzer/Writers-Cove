@@ -3,6 +3,7 @@
 {% block title %} Create Story {% endblock %}
 {% block extraCSS %} <link rel="stylesheet" href="{% static 'CSS/editor.css' %}"> {% endblock %}
 {% block extraJS %} <script src="{% static 'js/submitStory.js' %}" defer></script> {% endblock %}
+{% block profile %} <li><a href="#"> {{ user.user_name }} </a></li> {% endblock %}
 {% block content %}
 <div class="editor-container">
     <h1>Create a New Story</h1>

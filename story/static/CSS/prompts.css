@@ -1,0 +1,109 @@
+/* Styling for the prompt container */
+.prompt-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Styling for the heading */
+.prompt-container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Styling for the input text box */
+.prompt-prompt {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.prompt-prompt:focus {
+    border-color: #007BFF;
+}
+
+/* Styling for the buttons */
+.submit-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.submit-btn:active {
+    transform: translateY(2px);
+}
+
+/* Styling for the generated prompt section */
+.prompt-display {
+    margin-top: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+/* Styling for the title */
+#title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Styling for the prompt content */
+#prompt-content {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    text-align: justify; /* Ensures better readability */
+}
+
+/* Styling for the 'No prompt generated' message */
+.prompt-display p {
+    font-size: 16px;
+    color: #666;
+    font-style: italic;
+}
+
+
+/* Styling for the heading */
+.prompt-heading {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Styling for the prompt text */
+.prompt-text {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    text-align: justify; /* Ensures better readability */
+}
+

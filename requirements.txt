@@ -1,2 +1,8 @@
 numpy
 django
+djangorestframework
+djangorestframework-simplejwt
+groq
+celery 
+redis
+
