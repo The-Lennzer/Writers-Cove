@@ -1,44 +1,45 @@
 {% extends 'main/base.html' %}
 {% load static %}
 {% block title %} Home-WC {% endblock %}
-{% block extraCSS %} <link rel="stylesheet" href="{% static 'CSS/home.css' %}"> {% endblock %}
-{% block extraJS %} <script src="{% static 'js/feed.js' %}" defer></script> {% endblock %}
+{% block extraCSS %} <link rel="stylesheet" href="{% static 'CSS/feed.css' %}"> {% endblock %}
+{% block extraJS %} 
+<script src="{% static 'js/feed.js' %}" defer></script>
+{% endblock %}
 {% block profile %} <li><a href="#"> {{ user.user_name }} </a></li> {% endblock %}
 {% block content %}
-    {% comment %} <h1>Welcome to the Home page</h1> {% endcomment %}
-    
-    <!-- Feed Container -->
-    <div class="feed-container">
 
-        <div class="prompt-container">
-        <div class="card-header" onclick="toggleCard()" >
-        Daily Prompt
+ <!-- Daily Prompt -->
+    <div class="prompt-container" onclick="toggleCard()">
+        <div class="card-header">
+            Daily Prompt
         </div>
         <div class="card-content">
-        <p>{{ daily_prompt }}</p>
-        </div>
-        </div>
-
-    {% for story in stories %}
-    <div class="post-card" onclick="toggleContent(this)">
-        <!-- Post Header -->
-        <div class="post-header">
-            <span class="username">{{ story.author }}</span> <!-- Display author's username -->
-        </div>
-
-        <!-- Story Title -->
-        <div class="post-title">
-           <strong>{{ story.storyTitle }}</strong>
-        </div>
-
-        <!-- Hidden Full Content -->
-        <div class="full-content" style="display: none;">
-            <h2><strong>{{ story.title }}</strong></h2>
-            <div>{% autoescape off %}{{ story.content | safe }}{% endautoescape %}</div>
+            <p>{{ daily_prompt }}</p>
         </div>
     </div>
+    
+<!-- Feed Container -->
+<div class="feed-container">
+
+        {% for story in stories %}
+        <a href="{% url 'reader' story.id %}" class="story-card-link">
+            <div class="story-card">
+                <!-- Title -->
+                <div class="story-title">
+                    <h2>{{ story.storyTitle }}</h2>
+                </div>
+
+                <!-- Author -->
+                <div class="story-author">
+                    <span>{{ story.author }}</span>
+                </div>
+            </div>
+        </a>
+
+
     {% empty %}
     <p>No stories to show yet. Start by writing your first story!</p>
     {% endfor %}
 </div>
+
 {% endblock %}

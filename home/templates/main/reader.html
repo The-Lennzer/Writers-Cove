@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %} Story Reader {% endblock %}
+{% block extraCSS %} <link rel="stylesheet" href="{% static 'CSS/reader.css' %}"> {% endblock %}
+{% block profile %} <li><a href="#"> {{ user.user_name }} </a></li> {% endblock %}
+{% block content %}
+
+<div class="reader-container">
+    <!-- Story Title -->
+    <div class="story-title">
+        <h1>{{ story.storyTitle }}</h1>
+    </div>
+
+    <!-- Story Author -->
+    <div class="story-author">
+        <p>By <strong>{{ story.author }}</strong></p>
+    </div>
+
+    <!-- Story Content -->
+    <div class="story-content">
+        {% autoescape off %}
+        {{ story.content | safe }}
+        {% endautoescape %}
+    </div>
+</div>
+
+{% endblock %}

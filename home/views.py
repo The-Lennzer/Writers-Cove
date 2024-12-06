@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
@@ -67,7 +67,10 @@ class FeedView(APIView):
         })
         return render(request, 'main/feed.html', {"stories": stories, "daily_prompt": daily_prompt})
     
-
+class StoryReaderView(APIView):
+    def get(self, request, pk):
+        story = get_object_or_404(shortStory, pk=pk)
+        return render(request, 'main/reader.html', {'story': story})
 
 
 

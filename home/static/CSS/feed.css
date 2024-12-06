@@ -18,6 +18,103 @@ body {
     border-bottom: 1px solid #ddd; /* Subtle line underneath */
 }
 
+/* Basic card styles */
+.prompt-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+    border-radius: 8px;
+    background-color: #f4f4f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    /* Make the prompt container sticky */
+    position: sticky;
+    top: 10px; /* Distance from the top of the viewport */
+    z-index: 10; /* Ensure it stays above other content */
+}
+
+/* Card header styles */
+.prompt-container .card-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.prompt-container .card-content {
+    padding: 15px;
+    display: none; /* Initially hidden */
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.prompt-container.expanded .card-content {
+    display: block;
+}
+
+.prompt-container.expanded {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* Add hover effect to title */
+.prompt-container .card-header:hover {
+    background-color: #45a049;
+}
+
+
+/* Feed Container */
+.feed-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.story-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.story-card {
+    width: 200px;
+    height: 300px;
+    background: #fdf6e3;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.story-card:hover {
+    transform: scale(1.05);
+}
+
+.story-title h2 {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.story-author span {
+    font-size: 0.9rem;
+    color: #555;
+    align-self: flex-end;
+}
+
+
 .navbar .logo {
     font-size: 1.5rem;
     font-weight: bold;
@@ -97,6 +194,3 @@ body {
     line-height: 1.6;
     display: none;
 }
-
-
-
