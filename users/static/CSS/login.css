@@ -8,7 +8,7 @@ body {
     align-items: center;
     height: 100vh;
 }
-/* Message Styling */
+
 .messages {
     position: absolute;
     top: 10%;
@@ -107,24 +107,23 @@ button:hover {
     display: none;
 }
 
-/* Style for the paragraph containing the login link */
+
 .account-text {
     font-size: 1rem;
-    color: #555; /* Slightly lighter text color for the paragraph */
+    color: #555;
     text-align: center;
     margin-top: 20px;
 }
 
-/* Style for the login link */
+
 .login-link {
-    color: #28a745; /* Bright color for the link to stand out */
+    color: #28a745;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease; /* Smooth color transition on hover */
+    transition: color 0.3s ease; 
 }
 
-/* Hover effect for the login link */
 .login-link:hover {
-    color: #218838; /* Darker shade of the link color */
-    text-decoration: underline; /* Underline on hover for better interaction feedback */
+    color: #218838; 
+    text-decoration: underline;
 }

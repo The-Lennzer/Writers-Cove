@@ -1,4 +1,3 @@
-numpy
 django
 djangorestframework
 djangorestframework-simplejwt

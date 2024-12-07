@@ -23,4 +23,4 @@ class UserProfileSerializer(serializers.ModelSerializer):
 class UserProfileUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = NewUser
-        fields = ['bio', 'pen_name']  # You can add more fields as needed
+        fields = ['bio', 'pen_name'] 

@@ -156,5 +156,21 @@ class PromptEngineView(APIView):
         return chat_completion.choices[0].message.content
         
 
+class StoryDeleteView(APIView):
+
+    def post(self, request, story_id):
+        # Get the story object to delete
+        story = get_object_or_404(shortStory, id=story_id)
+
+        # Ensure the user is the owner of the story
+        if story.author != request.user:
+            messages.error(request, "You do not have permission to delete this story.")
+            return redirect('profile') 
+
+        story.delete()
+        
+        messages.success(request, "Story deleted successfully.")
+        
+        return redirect('profile') 
 
 

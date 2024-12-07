@@ -79,24 +79,22 @@ button:hover {
     border: 1px solid #c3e6cb;
 }
 
-/* Style for the paragraph containing the login link */
+
 .account-text {
     font-size: 1rem;
-    color: #555; /* Slightly lighter text color for the paragraph */
+    color: #555; 
     text-align: center;
     margin-top: 20px;
 }
 
-/* Style for the login link */
 .login-link {
-    color: #ff6600; /* Bright color for the link to stand out */
+    color: #ff6600; 
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease; /* Smooth color transition on hover */
+    transition: color 0.3s ease; 
 }
 
-/* Hover effect for the login link */
 .login-link:hover {
-    color: #e65c00; /* Darker shade of the link color */
-    text-decoration: underline; /* Underline on hover for better interaction feedback */
+    color: #e65c00; 
+    text-decoration: underline; 
 }

@@ -29,6 +29,10 @@
                                         <div class="story-info">
                                             <p><em>Published on: {{ story.createdDate|date:"F j, Y" }}</em></p>
                                         </div>
+                                        <form action="{% url 'delete_story' story.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <button type="submit" class="delete-btn">Delete</button>
+                                        </form>
                                     </div>
                                 </a>
                             {% empty %}
