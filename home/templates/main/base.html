@@ -26,10 +26,10 @@
                 <li><a href="{% url 'feed' %}">Home</a></li>
                 <li><a href="{% url 'editor' %}">Write</a></li>
                 <li><a href="{% url 'prompts' %}">Prompts</a></li>
-                <li><a href="#">Contest</a></li>
-                <div class="sidebar-spacer"></div> <!-- Push items to the bottom -->
+                {% comment %} <li><a href="#">Contest</a></li> {% endcomment %}
+                <div class="sidebar-spacer"></div>
                 {% block profile %}
-                <li><a href="#"> Profile </a></li>
+                <li><a href="{% url 'profile' %}"> Profile </a></li>
                 {% endblock %}
                 <li id="logoutButton">Logout</li>
             </ul>

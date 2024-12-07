@@ -1,14 +1,35 @@
 .reader-container {
-    max-width: 800px;
+    display: block;
+    max-width: 90%;
     margin: 2rem auto;
-    background: #f4e4bc; /* Light brown resembling book pages */
+    background: #f4e4bc;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: "Georgia", serif;
     line-height: 1.8;
     color: #333;
+    overflow-x: auto;
+    word-wrap: break-word;
+    max-height: 90vh; 
+    box-sizing: border-box; 
 }
+
+@media (max-width: 768px) {
+    .reader-container {
+        max-width: 90%;
+        padding: 1.5rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    .reader-container {
+        max-width: 95%; 
+        padding: 1rem; 
+        font-size: 0.9rem;
+    }
+}
+
 
 .story-title h1 {
     font-size: 2rem;
@@ -25,7 +46,34 @@
 }
 
 .story-content {
+    margin-left: 50px;
     text-align: justify;
     white-space: pre-wrap;
     font-size: 1.1rem;
 }
+
+.edit-story {
+    display: inline-block;
+    padding: 6px 12px; 
+    font-size: 14px; 
+    font-weight: bold;
+    color: white;
+    background-color: #5A3A28;
+    border-radius: 6px; 
+    text-decoration: none; 
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edit-story:hover {
+    background-color: #3F2B1F; 
+    transform: translateY(-2px); 
+}
+
+.edit-story:active {
+    background-color: #2A1A11;
+    transform: translateY(1px); 
+}
+
+

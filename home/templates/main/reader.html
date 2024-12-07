@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %} Story Reader {% endblock %}
 {% block extraCSS %} <link rel="stylesheet" href="{% static 'CSS/reader.css' %}"> {% endblock %}
-{% block profile %} <li><a href="#"> {{ user.user_name }} </a></li> {% endblock %}
+{% block profile %} <li><a href="{% url 'profile' %}"> {{ user.user_name }} </a></li> {% endblock %}
 {% block content %}
 
 <div class="reader-container">
@@ -16,6 +16,14 @@
         <p>By <strong>{{ story.author }}</strong></p>
     </div>
 
+    <div>
+        <p><em>Published on: {{ story.createdDate|date:"F j, Y" }}</em></p>
+
+        {% if request.user == story.author %}
+            <a class="edit-story" href="{% url 'edit-editor' story.id %}">Edit Story</a>
+        {% endif %}
+    </div>
+
     <!-- Story Content -->
     <div class="story-content">
         {% autoescape off %}
@@ -23,5 +31,7 @@
         {% endautoescape %}
     </div>
 </div>
+
+
 
 {% endblock %}

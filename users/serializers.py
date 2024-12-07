@@ -15,4 +15,12 @@ class regSerializer(serializers.ModelSerializer):
             instance.save()
             return instance
 
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NewUser
+        fields = ['user_name', 'first_name', 'last_name', 'email', 'bio', 'pen_name', 'start_date']
 
+class UserProfileUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NewUser
+        fields = ['bio', 'pen_name']  # You can add more fields as needed

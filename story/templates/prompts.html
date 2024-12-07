@@ -6,8 +6,7 @@
 <link rel="stylesheet" href="{% static 'CSS/prompts.css' %}">
 {% endblock %}
 
-{% comment %} {% block extraJS %} <script src="{% static 'js/submitStory.js' %}" defer></script> {% endblock %} {% endcomment %}
-{% block profile %} <li><a href="#"> {{ user.user_name }} </a></li> {% endblock %}
+{% block profile %} <li><a href="{% url 'profile' %}"> {{ user.user_name }} </a></li> {% endblock %}
 {% block content %}
 
 <div class="prompt-container">
@@ -34,13 +33,12 @@
 
 <script>
    function setActionType(type, event) {
-        event.preventDefault(); // Prevent immediate submission
+        event.preventDefault();
         const actionTypeField = document.getElementById('action-type');
         if (actionTypeField) {
             actionTypeField.value = type;
             console.log(type);
 
-            // Submit the form manually
             document.getElementById('storyForm').submit();
         } else {
             console.error("Hidden input field 'action-type' not found.");

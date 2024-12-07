@@ -8,7 +8,17 @@
     <link rel="stylesheet" href="{% static 'CSS/sign-up.css' %}">
 </head>
 <body>
+
+    
+
     <div class="signup-container">
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
         <h1>Sign Up</h1>
         <form id="signupForm" method="POST" action="">
             {% csrf_token %}
@@ -34,6 +44,7 @@
             </div>
             <button type="submit">Sign Up</button>
         </form>
+        <p class="account-text">Already have an account? <a class="login-link" href={% url 'login' %}>Login</a></p>
         <p id="error-message" class="error-message"></p>
     </div>
 </body>

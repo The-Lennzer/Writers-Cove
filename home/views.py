@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from story.models import shortStory
 from story.models import DailyPrompt
@@ -19,7 +19,7 @@ def split_story(content, max_words=60):
     word_count = 0
 
     for element in soup.descendants:
-        if element.name not in [None, 'style', 'script']:  # Skip styles and scripts
+        if element.name not in [None, 'style', 'script']: 
             text = element.string or ""
             words = text.split()
             word_count += len(words)
@@ -30,34 +30,29 @@ def split_story(content, max_words=60):
                 current_chunk = []
                 word_count = 0
 
-    # Add remaining content as a final chunk
     if current_chunk:
         chunks.append(''.join(current_chunk))
 
     return chunks
 
 class HomeView(APIView):
-    authentication_classes = [JWTAuthentication]
-    permission_calsses = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def get(self, request):
         user = request.user
-        return render(request, 'main/home.html', {"user": user})
+        return render(request, 'main/home.html')
 
 class FeedView(APIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        # from .helpers import split_story
         daily_prompt_order = DailyPrompt.objects.order_by('-generated_at').first()
         daily_prompt = daily_prompt_order.prompt_text
 
         stories = shortStory.objects.all().order_by('-createdDate')
         processed = []
         for story in stories:
-        #     words = story.content.split()
-        #     slides = [' '.join(words[i:i + 60]) for i in range(0, len(words), 60)]
             slides = split_story(story.content, max_words=100)
             processed.append({
             'title': story.storyTitle,

@@ -5,7 +5,7 @@
 {% block extraJS %} 
 <script src="{% static 'js/feed.js' %}" defer></script>
 {% endblock %}
-{% block profile %} <li><a href="#"> {{ user.user_name }} </a></li> {% endblock %}
+{% block profile %} <li><a href="{% url 'profile' %}"> {{ user.user_name }} </a></li> {% endblock %}
 {% block content %}
 
  <!-- Daily Prompt -->
@@ -17,7 +17,7 @@
             <p>{{ daily_prompt }}</p>
         </div>
     </div>
-    
+
 <!-- Feed Container -->
 <div class="feed-container">
 

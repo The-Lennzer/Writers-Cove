@@ -11,7 +11,7 @@ class JWTTokenMiddleware(MiddlewareMixin):
         #     return None
         # if not access_token:
         #     # If no token is found, redirect to login page
-        #     messages.error(request, "Please log in to continue.")  # Optional message
+        #     msg = messages.error(request, "Please log in to continue.")  # Optional message
         #     return redirect('login')
         
         if access_token:

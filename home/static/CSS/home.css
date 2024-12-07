@@ -1,126 +1,216 @@
-/* Basic card styles */
-.prompt-container {
-    width: 100%;
-    max-width: 400px;
-    margin: 10px auto;
-    border-radius: 8px;
-    background-color: #f4f4f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: all 0.3s ease;
-    
-    /* Make the prompt container sticky */
-    position: sticky;
-    top: 10px; /* Distance from the top of the viewport */
-    z-index: 10; /* Ensure it stays above other content */
+
+body, h1, h2, p, ul, li, a, input, button, textarea {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-/* Card header styles */
-.prompt-container .card-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.prompt-container .card-content {
-    padding: 15px;
-    display: none; /* Initially hidden */
-    background-color: #fff;
+body {
+    background-color: #f8f9fa;
     color: #333;
-    font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
-.prompt-container.expanded .card-content {
-    display: block;
-}
-
-.prompt-container.expanded {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
-}
-
-/* Add hover effect to title */
-.prompt-container .card-header:hover {
-    background-color: #45a049;
-}
-
-
-/* Feed Container */
-.feed-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Space between posts */
-    margin-top: 20px;
-    padding: 0 15px;
-    max-width: 800px;
-    margin: 0 auto; /* Center feed */
-}
-
-/* Post Card Style */
-.post-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.post-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.user-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.username {
-    font-weight: bold;
-    color: #333;
-    font-size: 1.1rem;
-}
-
-.post-content p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.5;
-    margin-bottom: 15px;
-}
-
-/* Post Footer */
-.post-footer {
+.navbar {
+    background-color: #28a745;
+    margin: 2px 0 2px 2px;
+    border-radius: 12px;
+    color: #fff;
     display: flex;
     justify-content: space-between;
-    font-size: 0.9rem;
-    color: #777;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.likes, .comments {
-    cursor: pointer;
+.navbar .logo a {
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.likes:hover, .comments:hover {
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.nav-links a:hover {
     text-decoration: underline;
 }
 
-/* Responsive Feed */
-@media (max-width: 768px) {
-    .feed-container {
-        padding: 0 10px;
-    }
+.hero {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 12px;
+    margin: 2px 0 2px 2px;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(to right, #16171b ,  #3d404c );
+    color: #fff;
+    text-align: center;
+    min-height: 80vh;
+}
 
-    .post-card {
-        padding: 10px;
-    }
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content .cta-btn {
+    background-color: #fff;
+    color: #ff6600;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero-content .cta-btn:hover {
+    background-color: #ffe6cc;
+}
+
+.hero-image img {
+    max-width: 600px;
+    height: auto;
+}
+
+.features {
+    padding: 2rem;
+    text-align: center;
+    background-color: #fff;
+}
+
+.features h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.feature-card {
+    background-color: #f7f7f7;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+    font-size: 1.2rem;
+    color: #ff6600;
+    margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.about {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.contact {
+    padding: 2rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.contact label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact textarea {
+    height: 100px;
+}
+
+.contact button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact button:hover {
+    background-color: #e65c00;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9rem;
 }
