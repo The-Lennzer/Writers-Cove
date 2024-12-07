@@ -14,18 +14,17 @@ document.getElementById("logoutButton").addEventListener("click", function() {
     return;
   }
 
-  // Send the POST request to logout
+  
   fetch("/auth/logout/", {
     method: "POST",
-    credentials: "same-origin",  // Ensures cookies are sent with the request
+    credentials: "same-origin",  //cookie-set
     headers: {
-      "X-CSRFToken": csrfToken,  // Include the CSRF token in the request header
+      "X-CSRFToken": csrfToken,  
     }
   })
   .then(response => {
     if (response.redirected) {
       console.log(response.status);
-      // Redirect to login page after successful logout
       window.location.href = response.url;
     } else {
       alert("Failed to log out");

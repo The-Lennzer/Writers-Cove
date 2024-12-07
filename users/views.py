@@ -32,7 +32,6 @@ class CustomUserView(APIView):
             if newuser:
                 return Response(status=status.HTTP_201_CREATED)
         return Response(reg_ser.errors, status=status.HTTP_400_BAD_REQUEST)
-    
 
 class SignUpView(View):
     def get(self, request):
@@ -70,7 +69,6 @@ class SignUpView(View):
         except Exception as e:
             messages.error(request, f"An error occurred: {str(e)}")
             return redirect('/auth/signup')
-
 
 class LoginView(APIView):
     authentication_classes = []
@@ -136,8 +134,6 @@ class LoginView(APIView):
         if 'access_token' in request.COOKIES:
             return redirect('/feed/')
         return render(request, 'login.html')
-
-
 
 class LLogoutView(APIView):
 

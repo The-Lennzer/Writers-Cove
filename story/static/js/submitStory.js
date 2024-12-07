@@ -6,7 +6,6 @@ function getCSRFToken() {
   }
   
   document.getElementById("submit-btn").addEventListener("click", function() {
-    // Get the CSRF token from the cookie
     const csrfToken = getCSRFToken();
     
     if (!csrfToken) {
@@ -14,38 +13,37 @@ function getCSRFToken() {
       return;
     }
   
-    // Get the story content from the TinyMCE editor
-    const storyTitle = document.getElementById("storyTitle").value;  // Assuming you have an input field for the title
-    const storyContent = tinymce.get('storyEditor').getContent();  // Get the content from the TinyMCE editor
+  
+    const storyTitle = document.getElementById("storyTitle").value; 
+    const storyContent = tinymce.get('storyEditor').getContent(); 
   
     if (!storyTitle || !storyContent) {
       alert("Please fill in both the title and the content!");
       return;
     }
   
-    // Prepare the data to send in the request
+    
     const data = {
       storyTitle: storyTitle,
       content: storyContent
     };
   
-    // Send the POST request to submit the story
+    
     fetch("/story/editor/", {
       method: "POST",
-      credentials: "same-origin",  // Ensures cookies are sent with the request
+      credentials: "same-origin", 
       headers: {
-        "Content-Type": "application/json",  // Specify that we are sending JSON
-        "X-CSRFToken": csrfToken,  // Include the CSRF token in the request header
+        "Content-Type": "application/json",  
+        "X-CSRFToken": csrfToken,  
       },
-      body: JSON.stringify(data)  // Send the story data as JSON
+      body: JSON.stringify(data)  
     })
     .then(response => {
       if (response.ok) {
-        // Success: Handle response (e.g., show a success message or redirect)
         alert("Story submitted successfully!");
-        window.location.href = '/stories';  // Redirect to the page where the stories are displayed
+        window.location.href = '/stories';  
       } else {
-        // If response is not OK (e.g., server error, validation issue), show an alert
+       
         alert("Failed to submit the story.");
       }
     })

@@ -1,4 +1,4 @@
-/* Editor Container */
+
 .editor-container {
     background: white;
     padding: 30px;
@@ -6,7 +6,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 800px;
-    margin: 0 auto; /* Center the container horizontally */
+    margin: 0 auto;
 }
 
 h1 {
@@ -17,14 +17,13 @@ h1 {
     text-align: center;
 }
 
-/* Form Styling */
+
 .form-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* Story Title Input */
 .story-title {
     padding: 12px 15px;
     font-size: 16px;
@@ -40,7 +39,6 @@ h1 {
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
 }
 
-/* Submit Button */
 .submit-btn {
     padding: 12px 20px;
     font-size: 16px;
@@ -56,24 +54,21 @@ h1 {
     background-color: #2980b9;
 }
 
-/* Editor Wrapper (for spinner) */
 .editor-wrapper {
     position: relative;
     width: 100%;
-    height: 500px; /* Fixed height for editor */
+    height: 500px;
     border: 1px solid #ddd;
     border-radius: 5px;
     overflow: hidden;
 }
 
-/* Hide the textarea initially */
 textarea {
     display: none;
     width: 100%;
     height: 100%;
 }
 
-/* Loading Spinner */
 .loading-spinner {
     position: absolute;
     top: 50%;
@@ -87,13 +82,11 @@ textarea {
     animation: spin 2s linear infinite;
 }
 
-/* Spinner Animation */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .editor-container {
         padding: 20px;
