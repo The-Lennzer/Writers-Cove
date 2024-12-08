@@ -8,4 +8,4 @@ A story writing app for the writing community to foster a collaborative environm
 - Daily prompts for daily writing motivation
 - Custom prompt generator for when the daily prompt isn't working out for you
 - random and request based prompt generation
-- JWT based authentication optimizing user requests 
+- JWT based authentication for optimizing user requests flow
